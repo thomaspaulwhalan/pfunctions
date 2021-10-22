@@ -16,6 +16,30 @@ bool pendswith(char *string, char character)
 	return string[iterator] == character ? TRUE : FALSE;
 }
 
+bool pisalpha(char *string)
+{
+	int iterator = 0;
+
+	while (true) {
+		if (string[iterator] == '\0') return TRUE;
+		if (!pisletter(string[iterator])) return FALSE;
+
+		iterator++;
+	}
+}
+
+bool pisdigit(char *string)
+{
+	int iterator = 0;
+
+	while (true) {
+		if (string[iterator] == '\0') return TRUE;
+		if (!pisnumber(string[iterator])) return FALSE;
+	
+		iterator++;
+	}
+}
+
 int pcount(const char *string, char character)
 {
 	int count = 0;
@@ -88,7 +112,7 @@ char *ptitle(char *string)
 			isspace = TRUE;
 		}
 		else if (isspace == TRUE) {
-			if (pisalpha(string[iterator])) {
+			if (pisletter(string[iterator])) {
 				string[iterator] = ptoupper(string[iterator]);
 				isspace = FALSE;
 			}
