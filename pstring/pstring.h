@@ -14,6 +14,9 @@
 
 bool		pstartswith	(char *string, char character);
 bool		pendswith	(char *string, char character);
+bool		pisalpha	(char *string);
+bool		pisdigit	(char *string);
+
 int		pcount		(const char *string, char character);
 char		*plower		(char *string);
 char		*pupper		(char *string);
