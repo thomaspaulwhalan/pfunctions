@@ -15,7 +15,8 @@
 #define FALSE 0
 #endif
 
-bool		pisalpha		(char character);
+bool		pisletter		(char character);
+bool		pisnumber		(char character);
 bool		pislarger		(char character, char comparer);
 bool		pissmaller		(char character, char comparer);
 
