@@ -2,11 +2,16 @@
 #ifndef pchar_h
 #include<pchar.h>
 
-bool pisalpha(char character)
+bool pisletter(char character)
 {
 	/* If character is inclusively between the ranges of 65 and 90 OR between 97 and 122, return TRUE
 	 * */
 	return (((character >= 65) && (character <= 90)) || ((character >= 97) && (character <= 122))) ? TRUE : FALSE;
+}
+
+bool pisnumber (char character)
+{
+	return (character >= 48) && (character <= 57) ? TRUE : FALSE;
 }
 
 bool pislarger(char character, char comparer)
