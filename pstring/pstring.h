@@ -12,12 +12,18 @@
 #include<pchar.h>
 #endif
 
+#ifndef PSOS
+#define PSOS 0
+#endif
+
 bool		pstartswith	(char *string, char character);
 bool		pendswith	(char *string, char character);
 bool		pisalpha	(char *string);
 bool		pisdigit	(char *string);
 
-int		pcount		(const char *string, char character);
+int		plen		(char *string);
+int		pcount		(char *string, char *substring);
+int		pfind		(char *string, char *substring, unsigned int start, unsigned int end);
 char		*plower		(char *string);
 char		*pupper		(char *string);
 char		*pcapitalize	(char *string);
