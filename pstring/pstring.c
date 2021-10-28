@@ -40,21 +40,67 @@ bool pisdigit(char *string)
 	}
 }
 
-int pcount(const char *string, char character)
+int plen(char *string)
+{
+	int count = 0;
+	while (true) {
+		if (string[count] == '\0') return count;
+
+		count++;
+	}
+}
+
+int pcount(char *string, char *substring)
 {
 	int count = 0;
 
-	int iterator = 0;
+	int index = 0;
 	while (true) {
-		if (string[iterator] == character) {
-			count++;
+		if (string[index] == substring[0]) {
+			int testcounter = 1;
+			while (true) {
+				if (substring[testcounter] == '\0') {
+					count++;
+					break;
+				}
+
+				if (string[index+testcounter] != substring[testcounter]) {
+					break;
+				}
+
+				testcounter++;
+			}
 		}
-		else if (string[iterator] == '\0') {
+		else if (string[index] == '\0') {
 			return count;
 		}
 
-		iterator++;
+		index++;
 	}
+}
+
+int pfind(char *string, char *substring, unsigned int index, unsigned int end)
+{
+	if (index > end) return -1;
+
+	while (index <= end) {
+		if (string[index] == substring[0]) {
+			int testcounter = 1;
+			while (index + testcounter <= end) {
+				if (substring[1] == '\0') return index;
+				if (string[index+testcounter] != substring[testcounter]) break;
+				if (substring[testcounter+1] == '\0') return index;
+				testcounter++;
+			}
+		}
+		else if (string[index] == '\0') {
+			return -1;
+		}
+
+		index++;
+	}
+
+	return -1;
 }
 
 char *pupper(char *string)
